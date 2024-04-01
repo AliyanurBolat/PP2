@@ -13,7 +13,7 @@ class Player:
         self.image = pygame.transform.scale(self.image, (self.WIDTH, self.height))
         self.rect = self.image.get_rect()
         self.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT - 100)
-        self.MOVE_SPEED = SCREEN_WIDTH * 3
+        self.MOVE_SPEED = SPEED * 3
         
     def move(self):
         keys = pygame.key.get_pressed()
