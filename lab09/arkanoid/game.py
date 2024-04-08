@@ -9,7 +9,6 @@ from menu import Menu
 pygame.init()
 
 def quit_game():
-    print("Завершение игры...")
     pygame.quit()
     quit()
 
