@@ -3,8 +3,6 @@ import random
 from settings import *
 import paddle
 
-paddle = paddle.Paddle()
-
 class Ball:
     def __init__(self):
         self.radius = BALL_RADIUS
@@ -25,12 +23,13 @@ class Ball:
         if self.rect.left < 0 or self.rect.right > SCREEN_WIDTH:
             self.dx = -self.dx
 
-        if self.rect.colliderect(paddle.rect) and self.dy > 0:
-            self.dy = -self.dy
-
         if self.rect.bottom > SCREEN_HEIGHT:
             pygame.quit()
             quit()
+
+    def collide_with_paddle(self, paddle):
+        if self.rect.colliderect(paddle.rect) and self.dy > 0:
+            self.dy = -self.dy
             
     def collide_with_blocks(self, blocks):
         for block in blocks:
@@ -40,5 +39,4 @@ class Ball:
 
     def draw(self, screen):
         pygame.draw.circle(screen, WHITE, self.rect.center, self.radius)
-        
-ball = Ball()
+
