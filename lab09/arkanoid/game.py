@@ -100,6 +100,7 @@ while game_running:
         ball.move()
         
         ball.collide_with_blocks(blocks)
+        ball.collide_with_paddle(paddle)
         
         for block in blocks:
             if not block.visible:
